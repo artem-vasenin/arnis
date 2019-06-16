@@ -1,0 +1,7 @@
+.idea
+wire/*
+site/assets/cache
+site/assets/logs
+site/assets/sessions
+site/node_modules
+site/package.lock.json
