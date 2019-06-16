@@ -1,0 +1,10 @@
+// gallery
+section.container.gallery.py-5
+  .row
+    .col-sm-12
+        h2.text-black-50.text-center.pb-3.text-uppercase Фотогалерея
+    each item in [1,1,1,1,1,1]
+      figure.col-sm-6.col-md-4
+        a.view.overlay.zoom(href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(114).jpg" data-size="1600x1067" data-lightbox="img%20(114)")
+          img(src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(114).jpg" class="img-fluid" alt=`img${item}`)
+// /gallery

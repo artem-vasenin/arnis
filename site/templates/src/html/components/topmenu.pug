@@ -1,0 +1,25 @@
+// topmenu
+nav.topmenu.navbar.navbar-expand-lg.scrolling-navbar.navbar-dark.no-shadow.justify-content-between.w-100
+  a.navbar-brand(href="#")
+    img.logo(src="https://mdbootstrap.com/img/logo/mdb-transparent.png" alt="logo")
+  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarSupportedContent
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href="#") Главная
+          span.sr-only (current)
+      each val in ['Вторичная', 'Галерея', 'Контакты']
+        li.nav-item
+          a.nav-link=val
+      li.nav-item.dropdown
+        a.nav-link.dropdown-toggle#navbarDropdownMenuLink(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Каталог
+        .dropdown-menu.dropdown-primary(aria-labelledby="navbarDropdownMenuLink")
+          each val in ['Эльфийския трава', 'Волыны', 'Надувные тётки']
+            a.dropdown-item(href="#")= val
+    ul.navbar-nav.nav-flex-icons
+      each val in ['facebook-f', 'twitter', 'instagram']
+        li.nav-item
+          a.nav-link
+            i.fab(class=`fa-${val}`)
+// /topmenu

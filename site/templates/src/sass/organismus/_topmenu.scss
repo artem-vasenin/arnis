@@ -1,0 +1,11 @@
+.topmenu {
+    &.navbar.no-shadow{
+        box-shadow: none;
+    }
+    .navbar-brand {
+        padding: 0;
+    }
+    .logo{
+        max-height: 42px;
+    }
+}

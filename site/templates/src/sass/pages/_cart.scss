@@ -1,0 +1,331 @@
+.cart-dark {
+  .cart__body {
+    color: black !important;
+  }
+}
+
+.cart-page {
+
+  .cart {
+
+    &__head {
+      display: none;
+
+      @include susy-breakpoints($md) {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+    }
+
+    &__row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      background: white;
+      border: solid 1px $color-gray-1;
+      box-shadow: 0px 10px 28px 0 rgba(0, 0, 0, 0.08);
+      align-items: center;
+    }
+
+    &__footer {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__price-icon {
+      font-size: 0.75em;
+    }
+
+    &__del {
+      display: none;
+
+      @include susy-breakpoints($md) {
+        display: inline-block;
+      }
+
+      @include susy-breakpoints($xl) {
+        display: none;
+      }
+    }
+
+    &__del-label {
+      &:hover {
+        cursor: pointer;
+        color: red;
+      }
+
+      .cart__del-input:checked + .cart__del-icon,
+      .cart__del-input:checked + .cart__del-icon + .cart__del-text {
+        color: red;
+      }
+    }
+
+    &__del-input {
+      display: none;
+    }
+
+    &__del-text {
+      display: inline;
+
+      @include susy-breakpoints($md) {
+        display: none;
+      }
+
+      @include susy-breakpoints($xl) {
+        display: inline;
+      }
+    }
+
+    &__del-icon {
+      font-size: 1.2em;
+    }
+
+    &__qty-minus,
+    &__qty-plus {
+      width: 5%;
+      display: inline-block;
+      font-size: 20px;
+      vertical-align: middle;
+
+      @include susy-breakpoints($md) {
+        width: 20%;
+      }
+
+      @include susy-breakpoints($xl) {
+        display: inline;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: red;
+      }
+    }
+
+    &__qty-input {
+      width: 25%;
+      display: inline-block;
+      text-align: center;
+
+      @include susy-breakpoints ($md) {
+        width: 50%;
+      }
+
+      @include susy-breakpoints ($xl) {
+        width: 50%;
+      }
+    }
+
+    &__head-item,
+    &__col {
+      font-weight: 600;
+      line-height: 1.44;
+
+      &--1 {
+        flex: 0 0 33%;
+        max-width: 33%;
+        padding-bottom: 20px;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 13%;
+          max-width: 13%;
+          padding-bottom: 0;
+        }
+      }
+      &--2 {
+        flex: 0 0 67%;
+        max-width: 67%;
+        padding-bottom: 20px;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 26%;
+          max-width: 26%;
+          padding-bottom: 0;
+        }
+      }
+      &--3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: right;
+        border-bottom: 1px dotted $color-gray-4;
+        margin-bottom: 20px;
+
+        &::before {
+          content: attr(data-label);
+          display: block;
+          width: 50%;
+          text-align: left;
+          float: left;
+        }
+
+        @include susy-breakpoints ($md) {
+          text-align: center;
+          flex: 0 0 17%;
+          max-width: 17%;
+          border: none;
+          margin-bottom: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+      &--4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: right;
+        border-bottom: 1px dotted $color-gray-4;
+        margin-bottom: 20px;
+
+        &::before {
+          content: attr(data-label);
+          display: block;
+          width: 50%;
+          text-align: left;
+          float: left;
+        }
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 17%;
+          max-width: 17%;
+          border: none;
+          margin-bottom: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        @include susy-breakpoints ($xl) {
+          flex: 0 0 11.5%;
+          max-width: 11.5%;
+        }
+      }
+      &--5 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: right;
+        border-bottom: 1px dotted $color-gray-4;
+        margin-bottom: 20px;
+
+        &::before {
+          content: attr(data-label);
+          display: block;
+          width: 50%;
+          text-align: left;
+          float: left;
+        }
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 17%;
+          max-width: 17%;
+          border: none;
+          margin-bottom: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        @include susy-breakpoints ($xl) {
+          flex: 0 0 11.5%;
+          max-width: 11.5%;
+        }
+      }
+      &--6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 10%;
+          max-width: 10%;
+          text-align: right;
+        }
+
+        @include susy-breakpoints ($xl) {
+          flex: 0 0 21%;
+          max-width: 21%;
+        }
+      }
+    }
+
+    &__footer-item {
+      padding-bottom: 30px;
+
+      &--1 {
+        text-align: right;
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 20px;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 20%;
+          max-width: 20%;
+          text-align: center;
+          padding-right: 0;
+        }
+
+        @include susy-breakpoints ($lg) {
+          flex: 0 0 46%;
+          max-width: 46%;
+          text-align: right;
+        }
+      }
+      &--2 {
+        text-align: left;
+        flex: 0 0 50%;
+        max-width: 50%;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 20%;
+          max-width: 20%;
+          text-align: center;
+        }
+
+        @include susy-breakpoints ($lg) {
+          flex: 0 0 13%;
+          max-width: 13%;
+          text-align: right;
+        }
+      }
+      &--3 {
+        text-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 30%;
+          max-width: 30%;
+        }
+
+        @include susy-breakpoints ($lg) {
+          flex: 0 0 20%;
+          max-width: 20%;
+          text-align: right;
+        }
+      }
+      &--4 {
+        text-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @include susy-breakpoints ($md) {
+          flex: 0 0 30%;
+          max-width: 30%;
+        }
+
+        @include susy-breakpoints ($lg) {
+          flex: 0 0 21%;
+          max-width: 21%;
+          text-align: right;
+        }
+      }
+    }
+
+    .image {
+      max-height: 75px;
+    }
+  }
+}

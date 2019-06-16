@@ -1,0 +1,11 @@
+nav.d-inline-block(aria-label="Page navigation example")
+  ul.pagination.pg-dark
+    li.page-item
+      a.page-link(aria-label="Previous")
+        i.fas.fa-chevron-left(aria-hidden="true")
+    each item in [1,2,3,4,5,6,7]
+      li.page-item(class={active: item === 1})
+        a.page-link= item
+    li.page-item
+      a.page-link(aria-label="Next")
+        i.fas.fa-chevron-right(aria-hidden="true")

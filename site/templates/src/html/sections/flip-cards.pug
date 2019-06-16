@@ -1,0 +1,23 @@
+//flip-cards
+- var itemData = [{title:'Создание сайтов',subtitle:'Мы делаем красивые сайты которые работают на всех устройствах',text:'В нашей веб студии мы делаем действительно крутые и интересные проекты, сайты и заказчики говорят - "Вау!"',image:'img/flip-img1.jpg'},{title:'SEO продвижение',subtitle:'Продвижение в поисковиках',text:'Только "белое" SEO продвижение, которое будет реально работать и приведёт трафик вам на сайт из всех популярных поисковых систем (Яндекс, Google, Rambler, Mail.ru)',image:'img/flip-img2.jpg'},{title:'Сопровождение и поддержка',subtitle:'Любой каприз за ваши деньги',text:'После создания для Вас сайта интернет-магазина, Landing Page или корпоративного сайта мы продолжаем сотрудничество и ведём проект и дорабатываем по необходимости.',image:'img/flip-img3.jpg'}]
+
+section.flip-cards.grey.lighten-3.pt-5.pb-5
+  .container
+    .row
+      .col-12
+        .wrapper
+          .pb-3.text-center
+            h2.text-uppercase Наши преимущества
+          .clearfix
+            .cols
+              each item in itemData
+                .flip-col.col-sm-6.col-lg-4.mb-4(ontouchstart="this.classList.toggle('hover');")
+                  .flip-container
+                    .front.rounded.z-depth-2(style=`background-image: url(${item.image})`)
+                      .inner
+                        .flip-cards__title= item.title
+                        .flip-cards__desc= item.subtitle
+                    .back.rounded.z-depth-2
+                      .inner
+                        p= item.text
+// /flip-cards

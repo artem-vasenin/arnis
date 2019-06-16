@@ -1,0 +1,37 @@
+// news cards
+section.jarallax.view.dark-section
+  img.jarallax-img(src="img/planet.jpg" alt="")
+  .container.news-cards
+    .row
+      .col-sm-12.pt-5.pb-3.text-center
+        h2.text-white.text-uppercase Новостной блог
+      .col-sm-12.clearfix
+        .row.justify-content-center
+          each item in [1,2,3]
+            .col-sm-6.col-lg-4.mb-4
+              .card
+                a(href="#")
+                  img.card-img-top(src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap")
+                .card-body
+                  h4.text-center.pb-2
+                    a(href="#") заголовок новости
+                  p.text-black-50 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis nisi nam, magnam obcaecati, earum ad est ea adipisci consectetur a eos iure aliquid facere distinctio.
+                  .text-right
+                    a.btn.btn-elegant(href="#") Подробнее...
+                .rounded-bottom.elegant-color.lighten-3.text-center.pt-3
+                  ul.list-unstyled.list-inline.font-small
+                    li.list-inline-item.pr-2.white-text
+                      i.fab.fa-clock-o.pr-1  05/10/2015
+                    li.list-inline-item.pr-2
+                      a.white-text(href="#")
+                        i.fal.fa-comments.pr-1  12
+                    li.list-inline-item.pr-2
+                      a.white-text(href="#")
+                        i.fab.fa-facebook.pr-1  21
+                    li.list-inline-item
+                      a.white-text(href="#")
+                        i.fab.fa-twitter.pr-1  5
+      .row.w-100
+        .col-sm-12.pt-4.pb-2.text-center
+          include ../components/pagination.pug
+// /news cards

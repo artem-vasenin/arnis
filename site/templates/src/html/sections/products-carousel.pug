@@ -1,0 +1,28 @@
+// products-carousel
+- var lists = ['carousel-item text-center active', 'carousel-item text-center', 'carousel-item text-center'];
+- var carouselList = [{id: 0, title: 'Тверь сити', desc: 'Наш городок', img: 'img/tver.jpg', class: 'carousel-item text-center active'}, {id: 1, title: 'Тверь сити', desc: 'Описание 2', img: 'img/tver1.jpg', class: 'carousel-item text-center'}, {id: 2, title: 'Тверь сити', desc: 'Описание 3', img: 'img/tver2.jpg', class: 'carousel-item text-center'}, {id: 3, title: 'Тверь сити', desc: 'Наш городок', img: 'img/tver.jpg', class: 'carousel-item text-center active'}, {id: 4, title: 'Тверь сити', desc: 'Описание 2', img: 'img/thief2.jpg', class: 'carousel-item text-center'}];
+
+section.products-carousel.pt-5.pb-3.grey.lighten-3.crusel-cards
+  h2.text-black-50.text-center.text-uppercase Савсэм свежий картошка!
+  #carousel-with-lb.carousel.slide.carousel-multi-item(data-ride="carousel")
+    //- slides
+    .carousel-inner(role="listbox")
+      each val in lists
+        div(class=val)
+          each item in carouselList
+            .card.z-depth-1.col-md-2.d-md-inline-block.align-items-center.m-2.pt-3
+              .view.overlay
+                img.card-img-top(src=item.img alt=item.desc)
+                a
+                  .mask.rgba-white-slight
+              .card-body.text-center
+                a.grey-text
+                  h5 Shirt
+                h5
+                  strong
+                    a.dark-grey-text Denim shirt
+                      small.badge.badge-pill.danger-color.ml-2 NEW
+                h4.font-weight-bold.blue-text
+                  strong 120$
+    //- /slides
+// /products-carousel

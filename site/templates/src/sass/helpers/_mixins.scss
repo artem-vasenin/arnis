@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin clearfix {
+	&::before,
+	&::after	{
+		content: '';
+		clear: both;
+		display: table;
+	}
+}
+
+/** BREAKPOINTS **/
+
+@mixin susy-breakpoints($point) {
+	@media (min-width: $point) { @content ; }
+ }

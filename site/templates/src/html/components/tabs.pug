@@ -1,0 +1,10 @@
+.accordion.md-accordion.accordion-4#accordionEx2(role="tablist" aria-multiselectable="true")
+  each item in [10,11,12,13,14]
+    .card
+      .card-header.z-depth-1.elegant-color(id=`heading${item}` role="tab")
+        a(data-toggle="collapse" data-parent="#accordionEx2" href=`#collapse${item}` aria-expanded="true" aria-controls=`collapse${item}`)
+          h4.mb-0.text-white.text-center= `заголовок №${item}`
+      .collapse(class={show: item === 10} id=`collapse${item}` role="tabpanel" aria-labelledby=`heading${item}` data-parent="#accordionEx2")
+        .card-body.grey.lighten-3
+          each val in [1,2]
+            p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.

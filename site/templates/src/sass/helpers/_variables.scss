@@ -1,0 +1,54 @@
+$susy: (
+	'columns': susy-repeat(12),
+    'gutters': 0.25,
+    'spread': 'narrow',
+    'container-spread': 'narrow',
+);
+
+// Breakpoints
+$xs: 460px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// Colors
+$color-dark-1: #1f1f1f;
+$color-dark-2: #333;
+$color-dark-3: #111;
+$color-dark-4: #363636;
+
+$color-gray-1: #eee;
+$color-gray-2: #ddd;
+$color-gray-3: #ccc;
+$color-gray-4: #bbb;
+$color-gray-5: #aaa;
+
+$color-blue-1: #006699;
+
+$color-light-a1: rgba(255,255,255,.1);
+$color-light-a2: rgba(255,255,255,.2);
+$color-light-a3: rgba(255,255,255,.3);
+$color-light-a4: rgba(255,255,255,.4);
+$color-light-a5: rgba(255,255,255,.5);
+$color-light-a6: rgba(255,255,255,.6);
+$color-light-a7: rgba(255,255,255,.7);
+$color-light-a8: rgba(255,255,255,.8);
+$color-light-a9: rgba(255,255,255,.9);
+
+$color-dark-a1: rgba(0,0,0,0.1);
+$color-dark-a2: rgba(0,0,0,0.2);
+$color-dark-a3: rgba(0,0,0,0.3);
+$color-dark-a4: rgba(0,0,0,0.4);
+$color-dark-a5: rgba(0,0,0,0.5);
+$color-dark-a6: rgba(0,0,0,0.6);
+$color-dark-a7: rgba(0,0,0,0.7);
+$color-dark-a8: rgba(0,0,0,0.8);
+$color-dark-a9: rgba(0,0,0,0.9);
+
+//Font
+$font-r: 'Roboto', 'Helvetica', sans-serif;
+
+$font-family-base: $font-r;
+$font-color-base: black;
+$font-size: 16px;
