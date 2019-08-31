@@ -1,0 +1,18 @@
+.address {
+  &__table {
+    display: table;
+  }
+  &__row {
+    display: table-row;
+  }
+  &__col {
+    display: table-cell;
+  }
+
+  &__label {
+    color: $color-gray-8;
+  }
+  &__info {
+    padding-left: 10px;
+  }
+}

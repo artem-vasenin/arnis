@@ -1,0 +1,99 @@
+.gallery {
+  background: black url('../img/picturesbg.jpg') no-repeat top center;
+  background-size: cover;
+  color: $color-red-8;
+  position: relative;
+  padding: 56px 0;
+
+  &__block {
+    &--2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include susy-breakpoints($sm) {
+        flex-direction: row;
+      }
+
+      @include susy-breakpoints($lg) {
+        flex-direction: column;
+      }
+
+      .gallery__image {
+        max-width: 100%;
+        flex: 1 1 100%;
+        margin-bottom: 30px;
+
+        @include susy-breakpoints($sm) {
+          max-width: calc(50% - 15px);
+          flex: 1 1 calc(50% - 15px);
+        }
+
+        @include susy-breakpoints($lg) {
+          max-width: 100%;
+          flex: 1 1 100%;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &--3 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .gallery__image {
+        max-width: 100%;
+        flex: 1 1 100%;
+        margin-bottom: 30px;
+
+        &--half {
+          @include susy-breakpoints($sm) {
+            max-width: calc(50% - 15px);
+            flex: 1 1 calc(50% - 15px);
+          }
+        }
+
+        &--full {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__image {
+    min-height: 250px;
+    background-size: cover;
+    display: block;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    box-shadow: 0 0 0 $color-dark-a5;
+
+    &:hover {
+      filter: grayscale(0%);
+      transition: all 0.5s ease;
+      box-shadow: 3px 3px 8px $color-dark-a5;
+    }
+
+    &--vertical {
+      min-height: 530px;
+    }
+
+    &--full {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+
+    &--half {
+      max-width: 50%;
+      flex: 1 1 50%;
+    }
+  }
+
+  @include susy-breakpoints($lg) {
+
+  }
+}

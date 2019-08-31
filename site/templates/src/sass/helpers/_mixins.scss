@@ -12,7 +12,6 @@
 }
 
 /** BREAKPOINTS **/
-
 @mixin susy-breakpoints($point) {
 	@media (min-width: $point) { @content ; }
  }

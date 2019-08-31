@@ -1,0 +1,18 @@
+// feedback
+section.section-feedback.feedback
+  .container
+    .row
+      .col-sm-12.text-white
+        .heading.heading--h2.text-center.text-uppercase
+          h2 Обратная связь
+        .form.feedback__form.col-md-8.offset-md-2.col-lg-6.offset-lg-3
+          .form__messages
+          input.form__text-field.feedback__text-field.form-control.mb-4#formName(type='text' placeholder='Имя' name='name')
+          input.form__text-field.feedback__text-field.form-control.mb-4#formPhone(type='text' placeholder='Телефон' name='phone')
+          textarea.form__textarea-field.feedback__textarea-field.form-control.mb-4#formMsg(placeholder='Имя' name='msg')
+          .custom-control.custom-checkbox.mb-4.text-center
+            input.custom-control-input.form__checkbox-field.feedback__checkbox-field#formCopy(type="checkbox")
+            label.custom-control-label(for="formCopy") Согласен с условиями конфедециальности
+          .form__actions-wrap.text-center
+            button.btn.btn--arrow.form__submit.feedback__submit#submit(type="submit") Отправить сообщение
+// /feedback

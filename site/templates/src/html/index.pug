@@ -5,22 +5,23 @@ html.h-100(lang='ru')
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     //- link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css")
     title Template.v.1.0
-  body.h-100
+  body.h-100.dev
     #site.site.d-flex.flex-column.h-100
-      header.header
-        include ./sections/header.pug
+      include sections/section-header.pug
       main.main.flex-grow-1
-        include ./sections/carousel.pug
-        include ./sections/flip-cards.pug
-        include ./sections/news-cards.pug
-        include ./sections/about.pug
-        include ./sections/services.pug
-        include ./sections/products-carousel.pug
-        include ./sections/blog.pug
-        include ./sections/content-stepper.pug
-        include ./sections/content-tabs.pug
-        include ./sections/gallery.pug
-        include ./sections/contacts.pug
-      footer.footer
-        include ./sections/footer.pug
-      include ./components/modal.pug
+        //include ./sections/carousel.pug
+        //include ./sections/flip-cards.pug
+        //include ./sections/news-cards.pug
+        //include ./sections/services.pug
+        //include ./sections/products-carousel.pug
+        //include ./sections/blog.pug
+        //include ./sections/content-stepper.pug
+        //include ./sections/content-tabs.pug
+        include ./sections/section-video.pug
+        include ./sections/section-gallery.pug
+        include ./sections/section-info-dark
+        include ./sections/section-feedback
+        include ./sections/section-about.pug
+        include ./sections/section-bootnav.pug
+      include ./sections/section-footer.pug
+      //include ./components/modal.pug

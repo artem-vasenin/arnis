@@ -1,0 +1,23 @@
+.gallery {
+  background: black url('../img/videobg.jpg') no-repeat top center;
+  background-size: cover;
+  position: relative;
+  padding: 56px 0;
+
+  &__block {
+    &--1 {
+
+    }
+    &--2 {
+
+    }
+  }
+
+  &__image {
+
+  }
+
+  @include susy-breakpoints($lg) {
+
+  }
+}

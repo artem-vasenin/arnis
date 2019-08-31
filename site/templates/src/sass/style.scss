@@ -3,7 +3,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'vendors/mdbootstrap/scss/mdb.scss';
 @import 'vendors/lightbox.scss';
-@import "~susy/sass/susy";
 
 // 1. Configuration and helpers
 @import 'helpers/variables';
@@ -14,24 +13,28 @@
 @import 'base/base';
 @import 'base/fonts';
 @import 'base/fontawesome';
-@import 'base/sections';
 
 // 3. Atoms
+@import 'atoms/heading';
+@import 'atoms/break';
+@import 'atoms/description';
+
 // 4. Molecules
-@import 'molecules/flip-cards';
-@import 'molecules/map';
-@import 'molecules/breadcrumb';
+@import 'molecules/socialls';
+@import 'molecules/totop';
+@import 'molecules/address';
+@import 'molecules/form';
+@import 'molecules/readmore';
 
 // 5. Organismus
-@import 'organismus/topmenu';
-@import 'organismus/carousel';
-@import 'organismus/form';
-@import 'organismus/modal';
-@import 'organismus/video';
+@import 'organismus/section-header';
+@import 'organismus/section-address';
+@import 'organismus/section-about';
+@import 'organismus/section-info-dark';
+@import 'organismus/section-video';
+@import 'organismus/section-gallery';
+@import 'organismus/section-feedback';
+@import 'organismus/section-bootnav';
+@import 'organismus/section-footer';
 
 // 6. Pages
-@import 'pages/home';
-@import 'pages/contacts';
-@import 'pages/catalog';
-@import 'pages/cart';
-@import 'pages/checkout';

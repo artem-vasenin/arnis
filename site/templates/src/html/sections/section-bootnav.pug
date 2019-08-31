@@ -1,0 +1,41 @@
+// bootnav
+section.section-bootnav.bootnav
+  .container
+    .row
+      .col-sm-6.col-md-4.pb-4.bootnav__nav
+        .bootnav__heading.bootnav__heading--line
+          span.bootnav__heading-text Разделы
+        nav.bootnav__nav-menu
+          ul.bootnav__nav-list.row
+            li.bootnav__nav-item.active.col-sm-12.col-lg-6.px-0
+              a.bootnav__nav-link(href="#") О нас
+            each val in ['Тренировки', 'Новости', 'Арнис', 'Галерея', 'Видео', 'Контакты']
+              li.bootnav__nav-item.col-sm-12.col-lg-6.px-0
+                a.bootnav__nav-link(href="#")=val
+      .col-sm-6.col-md-3.pb-4.bootnav__contacts
+        .bootnav__heading
+          span.bootnav__heading-text Контакты
+        .bootnav__contacts-wrap
+          .bootnav__contacts-address ул. Спартака 16а, Клуб "Кэнсинкан"
+          .bootnav__contacts-phone +7 915 71802 15
+          .bootnav__contacts-email butur@mail.ru
+          .bootnav__socialls
+            ul.socialls
+              each val in ['', '', '', '']
+                li.socialls__item
+                  a.socialls__link
+                    i.socialls__icon.fab.fa-youtube
+      .col-sm-5.col-md-4.pb-4.bootnav__gallery
+        .bootnav__heading
+          span.bootnav__heading-text Галерея
+        .bootnav__gallery-wrap.row
+          a.bootnav__gallery-big.col-md-6
+          .bootnav__gallery-thumbs.col-md-6
+            a.bootnav__garrery-thumb.thumb-1
+            a.bootnav__garrery-thumb.thumb-2
+            a.bootnav__garrery-thumb.thumb-3
+            a.bootnav__garrery-thumb.thumb-4
+      .col-sm-1.bootnav__totop.totop
+        a.totop__link
+          i.totop__icon.fal.fa-chevron-up
+// /bootnav

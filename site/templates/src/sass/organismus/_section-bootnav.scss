@@ -1,0 +1,99 @@
+.bootnav{
+  background: $color-dark-2;
+  color: $color-gray-7;
+  padding: 60px 0;
+  border-bottom: 1px solid $color-gray-6;
+  font-size: 0.8em;
+
+  &__heading {
+    text-transform: uppercase;
+    color: $color-red-1;
+    font-weight: 700;
+    padding-bottom: 16px;
+
+    &--line {
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: $color-red-3;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 0;
+      }
+    }
+  }
+  &__heading-text {
+    display: inline-block;
+    position: relative;
+    background: $color-dark-2;
+    padding-right: 10px;
+    z-index: 1;
+  }
+
+  // navigation
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__nav-link {
+    display: inline-block;
+    padding: 1px 0;
+
+    &:hover {
+      color: $color-red-2;
+    }
+  }
+
+  // contacts
+  &__contacts-address,
+  &__contacts-phone {
+    padding: 1px 0;
+  }
+  &__contacts-email {
+    padding-bottom: 24px;
+  }
+
+  // gallery
+  &__gallery-wrap {
+    height: calc(100% - 35px);
+  }
+  &__gallery-big {
+    background: url('../img/vit.jpg') no-repeat top center;
+    background-size: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+
+    &:hover {
+      filter: grayscale(0%);
+      transition: filter 0.5s ease;
+    }
+  }
+  &__gallery-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    align-items: stretch;
+    padding: 0 0 0 5px;
+  }
+  &__garrery-thumb {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    background: url('../img/vit.jpg') no-repeat top center;
+    background-size: cover;
+    height: calc(50% - 4px);
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+
+    &:hover {
+      filter: grayscale(0%);
+      transition: filter 0.5s ease;
+    }
+  }
+}

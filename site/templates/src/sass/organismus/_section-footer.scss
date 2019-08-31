@@ -1,0 +1,22 @@
+.footer{
+  background: $color-dark-2;
+
+  &__text {
+    font-size: 0.75em;
+    color: $color-gray-6;
+  }
+
+  .link {
+    color: $color-red-1;
+
+    &:hover {
+      color: $color-red-2;
+    }
+  }
+
+  &__copy-link,
+  &__copy-date {
+    display: inline-block;
+    margin-right: 15px;
+  }
+}

@@ -6,4 +6,5 @@ site/assets/logs/
 site/assets/sessions/
 site/templates/build/
 site/node_modules/
+site/templates/src/html/sections-old/
 site/package.lock.json

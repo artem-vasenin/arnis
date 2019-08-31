@@ -13,18 +13,30 @@ $lg: 992px;
 $xl: 1200px;
 
 // Colors
-$color-dark-1: #1f1f1f;
-$color-dark-2: #333;
-$color-dark-3: #111;
-$color-dark-4: #363636;
-
 $color-gray-1: #eee;
 $color-gray-2: #ddd;
 $color-gray-3: #ccc;
 $color-gray-4: #bbb;
 $color-gray-5: #aaa;
+$color-gray-6: #434343;
+$color-gray-7: #676767;
+$color-gray-8: #787878;
+$color-gray-9: #e9e9e9;
+
+$color-dark-1: #141415;
+$color-dark-2: #1e1e1e;
+$color-dark-3: #222;
 
 $color-blue-1: #006699;
+
+$color-red-1: #9b3023;
+$color-red-2: #f14732;
+$color-red-3: #5a1109;
+$color-red-4: #a22c1f;
+$color-red-5: #52160e;
+$color-red-6: #922214;
+$color-red-7: #772014;
+$color-red-8: #c03726;
 
 $color-light-a1: rgba(255,255,255,.1);
 $color-light-a2: rgba(255,255,255,.2);
@@ -52,3 +64,25 @@ $font-r: 'Roboto', 'Helvetica', sans-serif;
 $font-family-base: $font-r;
 $font-color-base: black;
 $font-size: 16px;
+
+//Spacing
+$t: 50;
+@while $t > 0 {
+  .h-pt-#{$t} { padding-top: 1px * $t; }
+  $t: $t - 5;
+}
+$b: 50;
+@while $b > 0 {
+  .h-pb-#{$b} { padding-bottom: 1px * $b; }
+  $b: $b - 5;
+}
+$r: 50;
+@while $r > 0 {
+  .h-pr-#{$r} { padding-right: 1px * $r; }
+  $r: $r - 5;
+}
+$l: 50;
+@while $l > 0 {
+  .h-pl-#{$l} { padding-left: 1px * $l; }
+  $l: $l - 5;
+}
