@@ -1,4 +1,5 @@
 .readmore {
+
   &__link {
     display: inline-block;
     position: relative;
@@ -12,7 +13,7 @@
       height: 4px;
       border-radius: 50%;
       position: absolute;
-      background: white;
+      background-color: white;
     }
 
     &::after {
@@ -53,5 +54,18 @@
     position: absolute;
     top: calc(50% - 5px);
     right: 0;
+  }
+
+  &--dark {
+    .readmore__link {
+      &::after,
+      &::before {
+        background-color: black;
+      }
+    }
+    .readmore__arrow {
+      border-top-color: black;
+      border-right-color: black;
+    }
   }
 }
