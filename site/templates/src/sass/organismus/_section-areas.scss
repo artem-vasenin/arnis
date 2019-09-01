@@ -1,0 +1,57 @@
+.areas {
+  background: black url('../img/stylesbg.jpg') no-repeat top center;
+  background-size: cover;
+  position: relative;
+  padding: 56px 0;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 117px;
+    width: 100%;
+    background: url('../img/swblack_1.png') no-repeat top left;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 153px;
+    width: 100%;
+    background: url('../img/swred_1.png') no-repeat bottom right;
+    z-index: 0;
+  }
+
+  &__img {
+    min-height: 170px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    color: $color-red-10;
+  }
+
+  &__block {
+    &--1 {
+      .areas__img {
+        background: url('../img/ico1.png') no-repeat center;
+      }
+    }
+    &--2 {
+      .areas__img {
+        background: url('../img/ico2.png') no-repeat center;
+      }
+    }
+    &--3 {
+      .areas__img {
+        background: url('../img/ico3.png') no-repeat center;
+      }
+    }
+  }
+}

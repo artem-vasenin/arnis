@@ -1,4 +1,6 @@
 .readmore {
+  position: relative;
+  z-index: 5;
 
   &__link {
     display: inline-block;
