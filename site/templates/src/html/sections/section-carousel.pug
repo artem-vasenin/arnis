@@ -1,0 +1,26 @@
+- var carouselList = [{id: 0, title: 'Тренировки по филиппинским боевым искусставм', desc: 'FCS, kali, Абанико Трес Пунтас, Панунтукан , silat', img: 'img/mainimage.jpg', class: 'carousel-item active'}, {id: 1, title: 'Тренировки по ножевому бою', desc: 'Фехтование на прямых клинках и керамбитах', img: 'img/mainimage.jpg', class: 'carousel-item'}, {id: 2, title: 'Бой на палках', desc: 'Одна или две палки, палка и нож', img: 'img/mainimage.jpg', class: 'carousel-item'}, {id: 3, title: 'Рукопашный бой - Силат', desc: 'Бой против безоружного и вооруженного противника', img: 'img/mainimage.jpg', class: 'carousel-item'}];
+// carousel
+#carousel-example-home.carousel.slide.carousel-fade.w-100.d-none.d-lg-block(data-ride="carousel")
+  //- Indicators
+  ol.carousel-indicators
+    each item in carouselList
+      li(data-target="#carousel-example-home" data-slide-to=item.id class={active: item.id === 0})
+  //- /.Indicators
+  //- Slides
+  .carousel-inner(role="listbox")
+    each item in carouselList
+      div(class=`${item.class}`)
+        .view
+          img.carousel__image.d-block.w-100(src=item.img alt=item.desc)
+          .mask.rgba-black-light
+        .carousel-caption
+          h3.h3-responsive= item.title
+          p= item.desc
+  //- /.Slides
+  //- Controls
+  a.carousel-control-prev(href="#carousel-example-home" role="button" data-slide="prev")
+    i.fal.fa-chevron-left.custom-size
+  a.carousel-control-next(href="#carousel-example-home" role="button" data-slide="next")
+    i.fal.fa-chevron-right.custom-size
+  //- /.Controls
+// /carousel

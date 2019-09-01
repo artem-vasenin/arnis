@@ -5,18 +5,11 @@ html.h-100(lang='ru')
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     //- link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css")
     title Template.v.1.0
-  body.h-100.dev
+  body.h-100
     #site.site.d-flex.flex-column.h-100
       include sections/section-header.pug
       main.main.flex-grow-1
-        //include ./sections/carousel.pug
-        //include ./sections/flip-cards.pug
-        //include ./sections/news-cards.pug
-        //include ./sections/services.pug
-        //include ./sections/products-carousel.pug
-        //include ./sections/blog.pug
-        //include ./sections/content-stepper.pug
-        //include ./sections/content-tabs.pug
+        include ./sections/section-carousel.pug
         include ./sections/section-areas
         include ./sections/section-info-red
         include ./sections/section-video
@@ -25,6 +18,6 @@ html.h-100(lang='ru')
         include ./sections/section-info-dark
         include ./sections/section-feedback
         include ./sections/section-about
-        include ./sections/section-bootnav
+      include ./sections/section-bootnav
       include ./sections/section-footer
-      //include ./components/modal.pug
+      include ./components/modal.pug

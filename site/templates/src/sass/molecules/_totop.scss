@@ -1,7 +1,11 @@
 .totop {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+
+  @include susy-breakpoints($md) {
+    justify-content: flex-end;
+  }
 
   &__link {
     display: inline-block;

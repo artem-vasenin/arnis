@@ -1,4 +1,3 @@
-<?php /** Шаблон подгружаемый после _init.php и основного шаблона страницы */ ?>
 <!DOCTYPE html>
 <html lang="ru" class=" h-100">
 <head>
@@ -20,7 +19,7 @@
 <body class="nojs h-100 body <?= $page->template ?>">
   <div class="site d-flex flex-column h-100" id="site">
     <?php include_once "./parts/header/header.part.php"; ?>
-    <main class="main flex-grow-1 pt-5">
+    <main class="main flex-grow-1">
       <?php
       if (!$path) $path = $page->template;
       include_once "views/{$path}/{$page->template}.view.php";

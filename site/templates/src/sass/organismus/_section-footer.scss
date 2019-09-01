@@ -4,19 +4,48 @@
   &__text {
     font-size: 0.75em;
     color: $color-gray-6;
+
+    @include susy-breakpoints($sm) {
+      padding-bottom: 20px;
+    }
   }
 
   .link {
+    display: block;
+    padding-bottom: 20px;
     color: $color-red-1;
 
     &:hover {
       color: $color-red-2;
     }
+
+    @include susy-breakpoints($sm) {
+      display: inline;
+      padding-bottom: 0;
+    }
   }
 
   &__copy-link,
   &__copy-date {
-    display: inline-block;
+    display: block;
     margin-right: 15px;
+    padding-bottom: 20px;
+
+    @include susy-breakpoints($sm) {
+      display: inline-block;
+      padding-bottom: 0;
+    }
+  }
+
+  &__made-text {
+    display: block;
+
+    @include susy-breakpoints($sm) {
+      display: inline-block;
+    }
+  }
+
+  &__made-link {
+    display: inline-block!important;
   }
 }

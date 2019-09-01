@@ -5,9 +5,7 @@ import './modules/mdb/bootstrap';
 import './modules/mdb/jarallax';
 import './modules/mdb/mdb';
 import Vue from 'vue/dist/vue';
-import axios from 'axios';
 import VueTheMask from 'vue-the-mask';
-// import Test from './modules/test';
 import 'lightbox2';
 
 Vue.use(VueTheMask);
@@ -17,9 +15,13 @@ new Vue({
   el: '#site',
   data() {
     return {
+      showMenuModal: false,
     };
   },
   methods: {
+    GetMenuModal() {
+      this.showMenuModal = !this.showMenuModal;
+    },
     // getFields() {
     //   let fields = [];
     //   for(let key in this.form) {
@@ -101,21 +103,4 @@ $(function() {
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
-})
-
-/** cart */
-$(document).ready(function () {
-  var minus = $(".cart__qty-minus");
-  var plus = $(".cart__qty-plus");
-
-  minus.on("click", function(){
-    console.log($(this).siblings(".cart__qty-input")[0].value);
-    if ($(this).siblings(".cart__qty-input")[0].value > 1) {
-      $(this).siblings(".cart__qty-input")[0].value--;
-    }
-  });
-
-  plus.on("click", function () {
-    $(this).siblings(".cart__qty-input")[0].value++;
-  });
 });

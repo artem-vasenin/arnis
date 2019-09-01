@@ -1,8 +1,31 @@
 // header
-header.section-header
+header.section-header.header.text-white
   .container
     .row
-      .col-sm-12.text-center
-        h3 Тренировки по филиппинским боевым искусствам
-        p FCS, kali, Абанико Трес Пунтас, Панунтукан , silat
+      .col-sm-4.col-lg-2.logo
+        .logo__img
+        .logo__text
+          .logo__top-text А.К.С.
+          .logo__bottom-text Тверь
+      .d-lg-none.col-sm-4.mobile-menu
+        a.mobile-menu__btn#mobileMenu
+          i.fas.fa-bars.mobile-menu__icon
+          span.mobile-menu__text МЕНЮ
+      .d-none.d-lg-block.col-sm-8
+        nav.menu
+          ul.nav.justify-content-around.menu__list
+            li.nav-item.menu__item.active
+              a.nav-link.menu__link.text-uppercase
+                span.menu__link-text О нас
+            each val in ['Арнис', 'Новости', 'Фото', 'Видео', 'Тренировки', 'Контакты']
+              li.nav-item.menu__item
+                a.nav-link.menu__link.text-uppercase
+                  span.menu__link-text=val
+      .col-sm-4.col-md-4.col-lg-2.header__contacts
+        .header__contacts-phone__contacts-phone.font-weight-bold 8 915 718 02 15
+        ul.socialls
+          each val in ['', '', '', '']
+            li.socialls__item
+              a.socialls__link
+                i.socialls__icon.fab.fa-youtube
 // /header
