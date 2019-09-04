@@ -11,16 +11,26 @@ import 'lightbox2';
 Vue.use(VueTheMask);
 
 new Vue({
-  components: { axios },
+  // components: { axios },
   el: '#site',
   data() {
     return {
       showMenuModal: false,
+      video: null,
     };
   },
   methods: {
     GetMenuModal() {
       this.showMenuModal = !this.showMenuModal;
+    },
+    ShowVideo(video) {
+      this.video = video;
+      $('#centralModalSm').modal('show');
+      // this.video = `https://youtu.be/${video}`;
+    },
+    CloseVideo() {
+      this.video = null;
+      $('#centralModalSm').modal('hide');
     },
     // getFields() {
     //   let fields = [];

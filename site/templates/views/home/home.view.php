@@ -1,48 +1,24 @@
 <div class="carousel slide carousel-fade w-100 d-none d-lg-block" id="carousel-example-home" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li class="active" data-target="#carousel-example-home" data-slide-to="0"></li>
-    <li data-target="#carousel-example-home" data-slide-to="1"></li>
-    <li data-target="#carousel-example-home" data-slide-to="2"></li>
-    <li data-target="#carousel-example-home" data-slide-to="3"></li>
-  </ol>
   <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <div class="view"><img class="carousel__image d-block w-100" src="<?=$config->urls->img?>mainimage.jpg" alt="FCS, kali, Абанико Трес Пунтас, Панунтукан , silat">
-        <div class="mask rgba-black-light"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Тренировки по филиппинским боевым искусставм</h3>
-        <p>FCS, kali, Абанико Трес Пунтас, Панунтукан , silat</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="view"><img class="carousel__image d-block w-100" src="<?=$config->urls->img?>mainimage.jpg" alt="Фехтование на прямых клинках и керамбитах">
-        <div class="mask rgba-black-light"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Тренировки по ножевому бою</h3>
-        <p>Фехтование на прямых клинках и керамбитах</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="view"><img class="carousel__image d-block w-100" src="<?=$config->urls->img?>mainimage.jpg" alt="Одна или две палки, палка и нож">
-        <div class="mask rgba-black-light"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Бой на палках</h3>
-        <p>Одна или две палки, палка и нож</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="view"><img class="carousel__image d-block w-100" src="<?=$config->urls->img?>mainimage.jpg" alt="Бой против безоружного и вооруженного противника">
-        <div class="mask rgba-black-light"></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Рукопашный бой - Силат</h3>
-        <p>Бой против безоружного и вооруженного противника</p>
-      </div>
-    </div>
-  </div><a class="carousel-control-prev" href="#carousel-example-home" role="button" data-slide="prev"><i class="fal fa-chevron-left custom-size"></i></a><a class="carousel-control-next" href="#carousel-example-home" role="button" data-slide="next"><i class="fal fa-chevron-right custom-size"></i></a>
+
+    <?php if ($page->carousel_banners->count) : ?>
+      <?php foreach ($page->carousel_banners as $key=>$banner) : ?>
+        <div class="carousel-item <?=$key === 0 ? 'active' : ''?>">
+          <div class="view">
+            <img class="carousel__image d-block w-100" src="<?=$banner->carousel_images->first->size(1980, 960)->url?>" alt="<?=$banner->carousel_image_title?>">
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive"><?=$banner->carousel_image_title?></h3>
+            <?=htmlspecialchars_decode($banner->carousel_image_desc)?>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+
+  </div>
+  <a class="carousel-control-prev" href="#carousel-example-home" role="button" data-slide="prev"><i class="fal fa-chevron-left custom-size"></i></a>
+  <a class="carousel-control-next" href="#carousel-example-home" role="button" data-slide="next"><i class="fal fa-chevron-right custom-size"></i></a>
 </div>
 <!-- areas-->
 <section class="section-areas areas">
@@ -54,24 +30,22 @@
         </div>
         <div class="areas__wrap pb-5">
           <div class="row areas__row">
-            <div class="col-sm-6 col-md-4 areas__block areas__block--1">
-              <div class="areas__img"></div>
-              <div class="areas__title text-uppercase font-weight-bold pb-3 text-center">Палочный бой</div>
-              <div class="areas__description">Берем палку, а может несколько в свои руки, и начинаем колбасить вашего сына. Раньше было лучше...</div>
-            </div>
-            <div class="col-sm-6 col-md-4 areas__block areas__block--2">
-              <div class="areas__img"></div>
-              <div class="areas__title text-uppercase font-weight-bold pb-3 text-center">Рукопашный бой</div>
-              <div class="areas__description">Берем палку, а может несколько в свои руки, и начинаем колбасить вашего сына. Этот ритуал забивания проводится со времен появления первого теранозавра. Раньше было лучше...</div>
-            </div>
-            <div class="col-sm-6 col-md-4 areas__block areas__block--3">
-              <div class="areas__img"></div>
-              <div class="areas__title text-uppercase font-weight-bold pb-3 text-center">Ножевой бой</div>
-              <div class="areas__description">Берем палку, а может несколько в свои руки, и начинаем колбасить вашего сына. Раньше было лучше...</div>
-            </div>
+            <?php if ($page->areas_repeater->count) : ?>
+              <?php foreach ($page->areas_repeater as $key=>$area) : ?>
+                <div class="col-sm-6 col-md-4 areas__block">
+                  <div class="areas__img" style="background: url('<?=$area->areas_image->size(170, 170)->url?>') no-repeat center;"></div>
+                  <div class="areas__title text-uppercase font-weight-bold pb-3 text-center"><?=$area->areas_title?></div>
+                  <div class="areas__description"><?=htmlspecialchars_decode($area->areas_desc)?></div>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
-        <div class="readmore readmore--dark text-center"><a class="readmore__link">Подробнее о стилях и направлениях<span class="readmore__arrow"></span></a></div>
+        <div class="readmore readmore--dark text-center">
+          <a href="<?=$pages->get(1035)->url?>" class="readmore__link">
+            Подробнее о стилях и направлениях<span class="readmore__arrow"></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -89,6 +63,7 @@
   </div>
 </section>
 <!-- /info red-->
+<?php if ($pages->get(1036)->video_repeater->count) : ?>
 <!-- video-->
 <section class="section-video video text-center">
   <div class="container">
@@ -99,8 +74,22 @@
         </div>
         <div class="video__wrap pb-5">
           <div class="row">
-            <div class="col-sm-6 video__block video__block--1"><a class="video__image video__image--vertical video__image--full" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"><span class="video__description">Видео мысленного разговора грандмастера с горой...</span><span class="video__button"></span></a></div>
-            <div class="col-sm-6 video__block video__block--2"><a class="video__image video__image--vertical video__image--full" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"><span class="video__description">Видео ожесточенной битвы на вершине Эвереста...</span><span class="video__button"></span></a></div>
+            <?php
+              $counter = 0;
+              foreach ($pages->get(1036)->video_repeater as $key=>$video) :
+                if (!$video->on_off) continue;
+                if ($counter > 2) break;
+                $content = "{link: '$video->video_link', title: '$video->video_title', width: $video->video_width, height: $video->video_height}";
+              ?>
+              <div class="col-sm-6 video__block video__block--1">
+                <a class="video__image video__image--vertical video__image--full" style="background-image: url('http://img.youtube.com/vi/<?=$video->video_link?>/0.jpg')">
+                  <span class="video__description"><?=$video->video_title?></span>
+                  <span class="video__button" @click="ShowVideo(<?=$content?>)"></span>
+                </a>
+              </div>
+            <?php
+              if (!$video->on_off) $counter++;
+              endforeach; ?>
           </div>
         </div>
         <div class="readmore"><a class="readmore__link text-white">Всё видео<span class="readmore__arrow"></span></a></div>
@@ -109,6 +98,7 @@
   </div>
 </section>
 <!-- /video-->
+<?php endif; ?>
 <!-- gallery-->
 <section class="section-gallery gallery text-center">
   <div class="container">
@@ -256,3 +246,41 @@
   </div>
 </section>
 <!-- /about-->
+<!--modal-->
+<!-- Central Modal Small -->
+<div
+  class="modal fade"
+  id="centralModalSm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">{{video ? video.title : ''}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div v-if="video" class="modal-body">
+        <div class="video__wrap">
+          <iframe
+            width="100%"
+            v-bind:height="video.height"
+            v-bind:src="`https://www.youtube.com/embed/${video.link}`"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" @click="CloseVideo">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Central Modal Small -->
+<!--/modal-->
