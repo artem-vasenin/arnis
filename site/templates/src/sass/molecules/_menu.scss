@@ -25,6 +25,9 @@
     padding-right: 6px;
 
     &:hover {
+      color: white;
+      text-decoration: none;
+
       &::after {
         content: '';
         display: block;

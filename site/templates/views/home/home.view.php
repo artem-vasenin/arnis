@@ -63,8 +63,8 @@
   </div>
 </section>
 <!-- /info red-->
-<?php if ($pages->get(1036)->video_repeater->count) : ?>
 <!-- video-->
+<?php if ($pages->get(1036)->video_repeater->count) : ?>
 <section class="section-video video text-center">
   <div class="container">
     <div class="row">
@@ -92,14 +92,67 @@
               endforeach; ?>
           </div>
         </div>
-        <div class="readmore"><a class="readmore__link text-white">Всё видео<span class="readmore__arrow"></span></a></div>
+        <div class="readmore">
+          <a href="<?=$pages->get(1036)->url?>" class="readmore__link text-white">Всё видео<span class="readmore__arrow"></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- /video-->
 <?php endif; ?>
+<!-- /video-->
 <!-- gallery-->
+<?php if ($page->gallery_images->count) :
+  $photos = [];
+  $counter = 0;
+  foreach($page->gallery_images as $img) {
+    if ($counter === 0) {
+      $photos[$counter] = [
+        "imgShort"=>$img->size(255,530)->url,
+        "imgFull"=>$img->url,
+        "text"=>$img->description
+      ];
+    } elseif ($counter > 5) {
+      break;
+    } else {
+      $photos[$counter] = [
+        "imgShort"=>$img->size(600,600)->url,
+        "imgFull"=>$img->url,
+        "text"=>$img->description
+      ];
+    }
+    $counter++;
+  }
+  $tmp = [
+    "imgShort"=>"https://via.placeholder.com/800x600/000000/FFFFFF/?text=Добавьте+изображение",
+    "imgFull"=>"https://via.placeholder.com/800x600/000000/FFFFFF/?text=Добавьте+изображение",
+    "text"=>"Добавьте изображение"
+  ];
+  if ($page->gallery_images->count < 2) {
+    $photos[1] = $tmp;
+    $photos[2] = $tmp;
+    $photos[3] = $tmp;
+    $photos[4] = $tmp;
+    $photos[5] = $tmp;
+  } elseif ($page->gallery_images->count < 3) {
+    $photos[2] = $tmp;
+    $photos[3] = $tmp;
+    $photos[4] = $tmp;
+    $photos[5] = $tmp;
+  } elseif ($page->gallery_images->count < 4) {
+    $photos[3] = $tmp;
+    $photos[4] = $tmp;
+    $photos[5] = $tmp;
+  }
+  if ($page->gallery_images->count < 5) {
+    $photos[4] = $tmp;
+    $photos[5] = $tmp;
+  }
+  if ($page->gallery_images->count < 6) {
+    $photos[5] = $tmp;
+  }
+?>
 <section class="section-gallery gallery text-center">
   <div class="container">
     <div class="row">
@@ -109,18 +162,32 @@
         </div>
         <div class="gallery__wrap pb-5">
           <div class="row">
-            <div class="d-none d-lg-block col-lg-3 gallery__block gallery__block--1"><a class="gallery__image gallery__image--vertical gallery__image--full" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a></div>
-            <div class="col-lg-3 gallery__block gallery__block--2"><a class="gallery__image gallery__image--full" style="background-image: url('https://imgfon.ru/Images/Download/Original/Movies/rasa-chuzhoy-truten-chuzhie-chuzhoy_zavet-ksenomorf.jpg?img.20')"></a><a class="gallery__image gallery__image--full" style="background-image: url('https://f.kinozon.tv/%D1%81%D1%82%D0%BE%D0%BF_%D0%BA%D0%B0%D0%B4%D1%80%D1%8B/511/%D0%A7%D1%83%D0%B6%D0%BE%D0%B9_2_%D0%A7%D1%83%D0%B6%D0%B8%D0%B5-2.jpg')"></a></div>
-            <div class="col-lg-6 gallery__block gallery__block--3"><a class="gallery__image gallery__image--half" style="background-image: url('https://get.wallhere.com/photo/Alien-movie-movies-1274841.jpg')"></a><a class="gallery__image gallery__image--half" style="background-image: url('https://i.pinimg.com/originals/eb/aa/3c/ebaa3c1ee7fee542b28c76bd0d2d7b73.jpg')"></a><a class="gallery__image gallery__image--full" style="background-image: url('https://www.startfilm.ru/images/base/film/f_660344/big_startfilmru1347333.jpg')"></a></div>
+            <div class="d-none d-lg-block col-lg-3 gallery__block gallery__block--1">
+              <a href="<?=$photos[0]['imgFull']?>" data-lightbox="img1" data-title="<?=$photos[0]['text']?>" class="gallery__image gallery__image--vertical gallery__image--full" style="background-image: url('<?=$photos[0]['imgShort']?>')">
+              </a>
+            </div>
+            <div class="col-lg-3 gallery__block gallery__block--2">
+              <a href="<?=$photos[1]['imgFull']?>" data-lightbox="img2" data-title="<?=$photos[1]['text']?>" class="gallery__image gallery__image--full" style="background-image: url('<?=$photos[1]['imgShort']?>')"></a>
+              <a href="<?=$photos[2]['imgFull']?>" data-lightbox="img3" data-title="<?=$photos[2]['text']?>" class="gallery__image gallery__image--full" style="background-image: url('<?=$photos[2]['imgShort']?>')"></a>
+            </div>
+            <div class="col-lg-6 gallery__block gallery__block--3">
+              <a href="<?=$photos[3]['imgFull']?>" data-lightbox="img4" data-title="<?=$photos[3]['text']?>" class="gallery__image gallery__image--half" style="background-image: url('<?=$photos[3]['imgShort']?>')"></a>
+              <a href="<?=$photos[4]['imgFull']?>" data-lightbox="img5" data-title="<?=$photos[4]['text']?>" class="gallery__image gallery__image--half" style="background-image: url('<?=$photos[4]['imgShort']?>')"></a>
+              <a href="<?=$photos[5]['imgFull']?>" data-lightbox="img6" data-title="<?=$photos[5]['text']?>" class="gallery__image gallery__image--full" style="background-image: url('<?=$photos[5]['imgShort']?>')"></a>
+            </div>
           </div>
         </div>
-        <div class="readmore"><a class="readmore__link text-white">Перейти к фотогалерее<span class="readmore__arrow"></span></a></div>
+        <div class="readmore">
+          <a href="<?=$pages->get(1041)->url?>" class="readmore__link text-white">Перейти к фотогалерее<span class="readmore__arrow"></span>
+          </a></div>
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 <!-- /gallery-->
 <!-- news-->
+<?php if ($pages->get(1045)->children->count) : ?>
 <section class="section-news news">
   <div class="container">
     <div class="row">
@@ -131,50 +198,35 @@
         <div class="gallery__wrap pb-2">
           <div class="news__list">
             <div class="row w-100 news__row">
+              <?php foreach($pages->get(1045)->children as $key=>$pub) :
+                if ($key > 3) breaK;
+              ?>
               <div class="col news__col">
-                <div class="news__item"><a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
+                <div class="news__item">
+                  <a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
                   <div class="news__description">
-                    <div class="news__title text-uppercase font-weight-bold pb-3">Международное пожимание рук по анукански</div>
-                    <div class="news__anonce">Грандмастер, он же самопровозглашенный полубог Джек прибудет в Тверь для семинара по Анунаски...</div>
-                    <div class="readmore readmore--dark text-center"><a class="readmore__link">Подробнее<span class="readmore__arrow"></span></a></div>
+                    <div class="news__title text-uppercase font-weight-bold pb-3"><?=$pub->title?></div>
+                    <div class="news__anonce"><?=htmlspecialchars_decode($pub->short_description)?></div>
+                    <div class="readmore readmore--dark text-center">
+                      <a href="<?=$pub->url?>" class="readmore__link">Подробнее<span class="readmore__arrow"></span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col news__col">
-                <div class="news__item"><a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
-                  <div class="news__description">
-                    <div class="news__title text-uppercase font-weight-bold pb-3">Международное пожимание рук по анукански</div>
-                    <div class="news__anonce">Грандмастер, он же самопровозглашенный полубог Джек прибудет в Тверь для семинара по Анунаски...</div>
-                    <div class="readmore readmore--dark text-center"><a class="readmore__link">Подробнее<span class="readmore__arrow"></span></a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col news__col">
-                <div class="news__item"><a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
-                  <div class="news__description">
-                    <div class="news__title text-uppercase font-weight-bold pb-3">Международное пожимание рук по анукански</div>
-                    <div class="news__anonce">Грандмастер, он же самопровозглашенный полубог Джек прибудет в Тверь для семинара по Анунаски...</div>
-                    <div class="readmore readmore--dark text-center"><a class="readmore__link">Подробнее<span class="readmore__arrow"></span></a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col news__col">
-                <div class="news__item"><a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
-                  <div class="news__description">
-                    <div class="news__title text-uppercase font-weight-bold pb-3">Международное пожимание рук по анукански</div>
-                    <div class="news__anonce">Грандмастер, он же самопровозглашенный полубог Джек прибудет в Тверь для семинара по Анунаски...</div>
-                    <div class="readmore readmore--dark text-center"><a class="readmore__link">Подробнее<span class="readmore__arrow"></span></a></div>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
-        <div class="readmore readmore--dark text-center"><a class="readmore__link">Архив новостей<span class="readmore__arrow"></span></a></div>
+        <div class="readmore readmore--dark text-center">
+          <a href="<?=$pages->get(1045)->url?>" class="readmore__link">Все новости<span class="readmore__arrow"></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 <!-- /news-->
 <!-- info dark-->
 <section class="section-info-dark info-dark text-center">

@@ -2,24 +2,39 @@
 <header class="section-header header text-white">
   <div class="container">
     <div class="row">
+      <?php if ($page->id !== 1) : ?>
+      <a href="/" class="col-sm-4 col-lg-2 logo">
+      <?php else : ?>
       <div class="col-sm-4 col-lg-2 logo">
+      <?php endif; ?>
         <div class="logo__img"></div>
         <div class="logo__text">
           <div class="logo__top-text">А.К.С.</div>
           <div class="logo__bottom-text">Тверь</div>
         </div>
+        <?php if ($page->id !== 1) : ?>
+        </a>
+        <?php else : ?>
+        </div>
+        <?php endif; ?>
+      <div class="d-lg-none col-sm-4 mobile-menu">
+        <a class="mobile-menu__btn" id="mobileMenu">
+          <i class="fas fa-bars mobile-menu__icon"></i>
+          <span class="mobile-menu__text">МЕНЮ</span>
+        </a>
       </div>
-      <div class="d-lg-none col-sm-4 mobile-menu"><a class="mobile-menu__btn" id="mobileMenu"><i class="fas fa-bars mobile-menu__icon"></i><span class="mobile-menu__text">МЕНЮ</span></a></div>
       <div class="d-none d-lg-block col-sm-8">
         <nav class="menu">
           <ul class="nav justify-content-around menu__list">
-            <li class="nav-item menu__item active"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">О нас</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Арнис</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Новости</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Фото</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Видео</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Тренировки</span></a></li>
-            <li class="nav-item menu__item"><a class="nav-link menu__link text-uppercase"><span class="menu__link-text">Контакты</span></a></li>
+            <?php foreach($home->pages_field as $link) : ?>
+            <li
+              class="nav-item menu__item<?=($page->id ===  $link->id) ? ' active' : ''?>"
+            >
+              <a href="<?=$link->url?>" class="nav-link menu__link text-uppercase">
+                <span class="menu__link-text"><?=$link->title?></span>
+              </a>
+            </li>
+            <?php endforeach; ?>
           </ul>
         </nav>
       </div>
