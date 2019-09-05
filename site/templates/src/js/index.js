@@ -1,5 +1,6 @@
 import '../sass/style.scss';
 import $ from 'jquery';
+import Dotdotdot from 'dotdotdot-js';
 import './modules/mdb/popper.min';
 import './modules/mdb/bootstrap';
 import './modules/mdb/jarallax';
@@ -9,6 +10,22 @@ import VueTheMask from 'vue-the-mask';
 import 'lightbox2';
 
 Vue.use(VueTheMask);
+
+document.addEventListener( "DOMContentLoaded", () => {
+  let wrapper = document.querySelectorAll( ".kuyaks" );
+  let options = {
+    // ellipsis: "\u2026",
+    height: 80,
+    // keep: null,
+    tolerance: 0,
+    truncate: "word",
+    watch: "window",
+  };
+  for(let i = 0; i < wrapper.length; i++) {
+    new Dotdotdot( wrapper[i], options );
+  }
+  // new Dotdotdot( wrapper, options );
+});
 
 new Vue({
   // components: { axios },

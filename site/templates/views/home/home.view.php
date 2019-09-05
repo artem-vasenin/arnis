@@ -52,16 +52,22 @@
 </section>
 <!-- /areas-->
 <!-- info red-->
-<section class="section-info-red info-red text-center text-white">
-  <div class="container info-red__sub-bg">
+<?php if ($page->promo_repeater->count) : ?>
+<section class="section-<?=$page->promo_repeater[0]->links?> info-red text-center text-white">
+  <div class="container <?=$page->promo_repeater[0]->links?>__sub-bg">
     <div class="row">
       <div class="col-sm-12">
-        <div class="description description--big pb-2">Ждем вас  каждую среду, четверг и пятницу !</div>
-        <div class="description description--medium">Клуб "Кэнсинкан", ул. Спартака, 16а</div>
+        <div class="description description--big pb-2">
+          <?=$page->promo_repeater[0]->title?>
+        </div>
+        <div class="description description--medium">
+          <?=$page->promo_repeater[0]->string?>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 <!-- /info red-->
 <!-- video-->
 <?php if ($pages->get(1036)->video_repeater->count) : ?>
@@ -198,15 +204,20 @@
         <div class="gallery__wrap pb-2">
           <div class="news__list">
             <div class="row w-100 news__row">
-              <?php foreach($pages->get(1045)->children as $key=>$pub) :
-                if ($key > 3) breaK;
-              ?>
+              <?php foreach($pages->get(1045)->children('sort=-date, limit=4') as $key=>$pub) : ?>
+<!-- https://via.placeholder.com/800x600/000000/FFFFFF/?text=Добавьте+изображение-->
               <div class="col news__col">
                 <div class="news__item">
-                  <a class="news__img" style="background-image: url('https://i.pinimg.com/originals/31/62/30/3162309d3c8ab1ace746d30ddc2d4f9f.jpg')"></a>
+                  <?php if ($pub->image->url) : ?>
+                    <a href="<?=$pub->url?>" class="news__img" style="background-image: url('<?=$pub->image->size(600, 600)->url?>')"></a>
+                  <?php else : ?>
+                    <a href="<?=$pub->url?>" class="news__img" style="background-image: url('https://via.placeholder.com/800x600/000000/FFFFFF/?text=Добавьте+изображение')"></a>
+                  <?php endif; ?>
                   <div class="news__description">
                     <div class="news__title text-uppercase font-weight-bold pb-3"><?=$pub->title?></div>
-                    <div class="news__anonce"><?=htmlspecialchars_decode($pub->short_description)?></div>
+                    <div class="news__anonce kuyaks">
+                      <?=htmlspecialchars_decode($pub->short_description)?>
+                    </div>
                     <div class="readmore readmore--dark text-center">
                       <a href="<?=$pub->url?>" class="readmore__link">Подробнее<span class="readmore__arrow"></span>
                       </a>
@@ -229,16 +240,22 @@
 <?php endif; ?>
 <!-- /news-->
 <!-- info dark-->
-<section class="section-info-dark info-dark text-center">
-  <div class="container info-dark__sub-bg">
+<?php if ($page->promo_repeater->count && $page->promo_repeater->count > 1) : ?>
+<section class="section-<?=$page->promo_repeater[1]->links?> info-dark text-center">
+  <div class="container <?=$page->promo_repeater[1]->links?>__sub-bg">
     <div class="row">
       <div class="col-sm-12">
-        <div class="description description--big pb-2">Спарринги на гуманизированном оружии!</div>
-        <div class="description description--medium">Очень аккуратные спаринги :- )</div>
+        <div class="description description--big pb-2">
+          <?=$page->promo_repeater[1]->title?>
+        </div>
+        <div class="description description--medium">
+          <?=$page->promo_repeater[1]->string?>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 <!-- /info dark-->
 <!-- feedback-->
 <section class="section-feedback feedback">

@@ -70,9 +70,9 @@
         box-shadow: 4px 4px 10px $color-dark-a5;
 
         @include susy-breakpoints($xl) {
-          max-width: 100%;
-          flex: 1 1 100%;
-          min-height: 250px;
+          max-width: 30%;
+          flex: 1 1 30%;
+          min-height: auto;
         }
       }
     }
@@ -121,6 +121,13 @@
   &__description {
     padding: 24px 20px 50px;
     position: relative;
+    max-width: 100%;
+    flex: 1 1 100%;
+
+    @include susy-breakpoints($xl) {
+      max-width: 70%;
+      flex: 1 1 70%;
+    }
 
     .readmore {
       position: absolute;
