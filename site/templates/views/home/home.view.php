@@ -265,25 +265,59 @@
         <div class="heading heading--h2 text-center text-uppercase">
           <h2>Обратная связь</h2>
         </div>
-        <div class="form feedback__form col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-          <div class="form__messages"></div>
-          <input class="form__text-field feedback__text-field form-control mb-4" id="formName" type="text" placeholder="Имя" name="name">
-          <input class="form__text-field feedback__text-field form-control mb-4" id="formPhone" type="text" placeholder="Телефон" name="phone">
-          <textarea class="form__textarea-field feedback__textarea-field form-control mb-4" id="formMsg" placeholder="Имя" name="msg"></textarea>
+        <form
+          @submit.prevent="SendForm"
+          class="form feedback__form col-md-8 offset-md-2 col-lg-6 offset-lg-3"
+        >
+          <div v-if="form.info" class="form__messages" :class="form.infoClass">{{ form.info }}</div>
+          <input
+            class="form__text-field feedback__text-field form-control mb-4" id="formName"
+            type="text"
+            placeholder="Имя"
+            name="name"
+            autocomplete="off"
+            v-model="form.name"
+          >
+          <input
+            class="form__text-field feedback__text-field form-control mb-4"
+            id="formPhone"
+            type="text"
+            placeholder="Телефон"
+            name="phone"
+            autocomplete="off"
+            v-model="form.phone"
+          >
+          <textarea
+            class="form__textarea-field feedback__textarea-field form-control mb-4"
+            id="formMsg"
+            placeholder="Сообщение"
+            name="msg"v-model="form.msg"
+          ></textarea>
           <div class="custom-control custom-checkbox mb-4 text-center">
-            <input class="custom-control-input form__checkbox-field feedback__checkbox-field" id="formCopy" type="checkbox">
-            <label class="custom-control-label" for="formCopy">Согласен с условиями конфедециальности</label>
+            <input
+              class="custom-control-input form__checkbox-field feedback__checkbox-field"
+              id="formCopy"
+              type="checkbox"
+              v-model="form.confirm"
+            >
+            <label class="custom-control-label" for="formCopy">
+              Согласен с <a href="<?=$pages->get(1062)->url?>" class="feedback__link" target="_blank">условиями конфедециальности</a>
+            </label>
           </div>
           <div class="form__actions-wrap text-center">
-            <button class="btn btn--arrow form__submit feedback__submit" id="submit" type="submit">Отправить сообщение</button>
+            <button :disabled="!validate" class="btn btn--arrow form__submit feedback__submit" id="submit" type="submit">Отправить сообщение</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </section>
 <!-- /feedback-->
 <!-- about-->
+<?php
+  $about = $pages->get(1044);
+  $contacts = $pages->get(1047);
+  if ($about->short_description) : ?>
 <section class="section-about about">
   <div class="container">
     <div class="row">
@@ -292,28 +326,30 @@
           <h2>О клубе</h2>
         </div>
         <div class="description font-weight-bold">
-          <p>Официальное представительство KFC Burger Russia, Региональной Федерации Арнис и Евроазиатского центра Modern Talking проводит тренировки по Филипинским боевым искусствам:</p>
-          <p>KFC Кали, Абанико Трес Пунтас, Панунтукан , Силат, Пилатос. Придерживаясь принятой в  последние годы практике мы практикуем битвы натрезубцах, бои на ножах в поезде и обычный бой на лодыжках ...</p>
+          <?=htmlspecialchars_decode($about->short_description)?>
         </div>
+        <?php if ($contacts->address_fields->count) : ?>
         <div class="break break--round"></div>
         <div class="address__table address font-weight-bold">
+          <?php foreach ($contacts->address_fields as $field) : ?>
           <div class="address__row">
-            <div class="address__col address__label">адрес:</div>
-            <div class="address__col address__info">ул. Спартака 16а, Клуб "Кэнсинкан"</div>
+            <div class="address__col address__label"><?=$field->title?></div>
+            <div class="address__col address__info">
+              <?php if ($field->author) : ?>
+                <a href="<?=$field->author?>" class="address__link"><?=$field->string?></a>
+              <?php else : ?>
+              <?=$field->string?>
+              <?php endif; ?>
+            </div>
           </div>
-          <div class="address__row">
-            <div class="address__col address__label">тел:</div>
-            <div class="address__col address__info">+7 915 71802 15</div>
-          </div>
-          <div class="address__row">
-            <div class="address__col address__label">e-mail:</div>
-            <div class="address__col address__info">butur@mail.ru</div>
-          </div>
+          <?php endforeach; ?>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 <!-- /about-->
 <!--modal-->
 <!-- Central Modal Small -->

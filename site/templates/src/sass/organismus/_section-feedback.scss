@@ -1,4 +1,22 @@
 .feedback{
   background: $color-red-6 url('../img/feedbackbg.jpg');
   padding: 56px 0;
+
+  .form {
+    position: relative;
+
+    &__messages {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      margin-left: -100px;
+    }
+  }
+
+  &__link {
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }
