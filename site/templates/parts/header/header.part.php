@@ -18,7 +18,7 @@
         </div>
         <?php endif; ?>
       <div class="d-lg-none col-sm-4 mobile-menu">
-        <a class="mobile-menu__btn" id="mobileMenu">
+        <a @click="ToggleMobileMenu" class="mobile-menu__btn" id="mobileMenu">
           <i class="fas fa-bars mobile-menu__icon"></i>
           <span class="mobile-menu__text">МЕНЮ</span>
         </a>
@@ -39,7 +39,7 @@
         </nav>
       </div>
       <div class="col-sm-4 col-md-4 col-lg-2 header__contacts">
-        <div class="header__contacts-phone__contacts-phone font-weight-bold">8 915 718 02 15</div>
+        <div class="header__contacts-phone__contacts-phone font-weight-bold"><?=$home->author?></div>
         <?php if ($home->address_fields->count) : ?>
         <ul class="socialls">
           <?php foreach ($home->address_fields as $field) : ?>

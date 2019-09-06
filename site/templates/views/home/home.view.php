@@ -360,12 +360,11 @@
   role="dialog"
   aria-labelledby="myModalLabel"
   aria-hidden="true">
-  <!-- Change class .modal-sm to change the size of the modal -->
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">{{video ? video.title : ''}}</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="CloseVideo">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -388,4 +387,35 @@
   </div>
 </div>
 <!-- Central Modal Small -->
+
+<!-- Full Height Modal Right -->
+<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="modalLabel">Меню</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <nav class="mobile-menu">
+          <ul class="nav flex-column mobile-menu__list">
+            <?php foreach($home->pages_field as $link) : ?>
+              <li
+                class="nav-item mobile-menu__item<?=($page->id ===  $link->id) ? ' active' : ''?>"
+              >
+                <a href="<?=$link->url?>" class="nav-link mobile-menu__link text-uppercase">
+                  <span class="mobile-menu__link-text"><?=$link->title?></span>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Full Height Modal Right -->
 <!--/modal-->

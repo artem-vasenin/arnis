@@ -54,18 +54,47 @@
         <div class="bootnav__heading">
           <span class="bootnav__heading-text">Галерея</span>
         </div>
+        <?php $gallery = $pages->get(1041);
+          if ($gallery->images->count) : ?>
         <div class="bootnav__gallery-wrap row">
-          <a class="bootnav__gallery-big col-md-6"></a>
+          <a
+            href="<?=$gallery->url?>"
+            class="bootnav__gallery-big col-md-6"
+            style="background-image: url('<?=$gallery->images->first->size(400,400)->url?>');"
+          ></a>
           <div class="bootnav__gallery-thumbs col-md-6">
-            <a class="bootnav__garrery-thumb thumb-1"></a>
-            <a class="bootnav__garrery-thumb thumb-2"></a>
-            <a class="bootnav__garrery-thumb thumb-3"></a>
-            <a class="bootnav__garrery-thumb thumb-4"></a>
+            <?php foreach ($gallery->images('limit=5') as $img) :
+                if ($img->url === $gallery->images->first->url) continue;
+            ?>
+              <a
+                href="<?=$gallery->url?>"
+                class="bootnav__garrery-thumb thumb-1"
+                style="background-image: url('<?=$img->size(200,200)->url?>');"
+              ></a>
+            <?php endforeach; ?>
           </div>
         </div>
+        <?php endif; ?>
       </div>
-      <div class="col-sm-12 col-md-1 bootnav__totop totop"><a class="totop__link"><i class="totop__icon fal fa-chevron-up"></i></a></div>
+      <div class="col-sm-12 col-md-1 bootnav__totop totop">
+        <a @click.prevent="ToTop" class="totop__link">
+          <i class="totop__icon fal fa-chevron-up"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 <!-- /bootnav-->
+<!-- footer-->
+<footer class="section-footer footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="footer__text pt-3">
+          <div class="footer__copy-text"><a class="link footer__copy-link" href="www.akstver.ru">© www.akstver.ru</a><span class="footer__copy-date">2000-<?=date('Y')?> Все права защищены</span><span class="footer__made-text">Разработка сайта -<a class="link footer__made-link" href="http://rusich69.ru" target="_blank">студия Русич</a></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer-->

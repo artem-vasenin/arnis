@@ -64,7 +64,8 @@
     height: calc(100% - 35px);
   }
   &__gallery-big {
-    background: url('../img/vit.jpg') no-repeat top center;
+    background-repeat: no-repeat;
+    background-position: top center;
     background-size: cover;
     filter: grayscale(100%);
     transition: filter 0.5s ease;
@@ -85,7 +86,8 @@
   &__garrery-thumb {
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
-    background: url('../img/vit.jpg') no-repeat top center;
+    background-repeat: no-repeat;
+    background-position: top center;
     background-size: cover;
     height: calc(50% - 4px);
     filter: grayscale(100%);

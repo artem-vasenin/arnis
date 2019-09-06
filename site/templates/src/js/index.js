@@ -49,9 +49,6 @@ new Vue({
     },
   },
   methods: {
-    GetMenuModal() {
-      this.showMenuModal = !this.showMenuModal;
-    },
     ShowVideo(video) {
       this.video = video;
       $('#centralModalSm').modal('show');
@@ -59,6 +56,12 @@ new Vue({
     CloseVideo() {
       this.video = null;
       $('#centralModalSm').modal('hide');
+    },
+    ToTop() {
+      $("body,html").animate({ scrollTop: 0 }, 800);
+    },
+    ToggleMobileMenu() {
+      $('#menuModal').modal('show');
     },
     ClearForm() {
       this.form = {
@@ -85,14 +88,12 @@ new Vue({
             this.form.info = 'Сообщение отправлено!';
             this.form.infoClass = 'text-success';
             this.ClearFormText(3);
-            $('#formModal').modal('show');
           })
           .fail((error) => {
             console.log('status:', error.status, ', text: ', error.statusText);
             this.form.info = 'Сообщение не отправлено...';
             this.form.infoClass = 'text-danger';
             this.ClearFormText(3);
-            $('#formModal').modal('show');
           })
           .always(() => {
             // console.log('allways');
