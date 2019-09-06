@@ -40,12 +40,17 @@
       </div>
       <div class="col-sm-4 col-md-4 col-lg-2 header__contacts">
         <div class="header__contacts-phone__contacts-phone font-weight-bold">8 915 718 02 15</div>
+        <?php if ($home->address_fields->count) : ?>
         <ul class="socialls">
-          <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-          <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-          <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-          <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
+          <?php foreach ($home->address_fields as $field) : ?>
+            <li class="socialls__item">
+              <a href="<?=$field->author?>" class="socialls__link" title="<?=$field->title?>">
+                <i class="socialls__icon fab fa-<?=$field->string?>"></i>
+              </a>
+            </li>
+          <?php endforeach; ?>
         </ul>
+        <?php endif; ?>
       </div>
     </div>
   </div>

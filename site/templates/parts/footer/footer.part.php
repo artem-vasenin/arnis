@@ -34,20 +34,34 @@
               </div>
             <?php endforeach; ?>
           <?php endif; ?>
+
+          <?php if ($home->address_fields->count) : ?>
           <div class="bootnav__socialls pt-3">
             <ul class="socialls">
-              <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-              <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-              <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
-              <li class="socialls__item"><a class="socialls__link"><i class="socialls__icon fab fa-youtube"></i></a></li>
+              <?php foreach ($home->address_fields as $field) : ?>
+                <li class="socialls__item">
+                  <a href="<?=$field->author?>" class="socialls__link" title="<?=$field->title?>">
+                    <i class="socialls__icon fab fa-<?=$field->string?>"></i>
+                  </a>
+                </li>
+              <?php endforeach; ?>
             </ul>
           </div>
+          <?php endif; ?>
         </div>
       </div>
       <div class="d-none d-md-block col-md-4 pb-4 bootnav__gallery">
-        <div class="bootnav__heading"><span class="bootnav__heading-text">Галерея</span></div>
-        <div class="bootnav__gallery-wrap row"><a class="bootnav__gallery-big col-md-6"></a>
-          <div class="bootnav__gallery-thumbs col-md-6"><a class="bootnav__garrery-thumb thumb-1"></a><a class="bootnav__garrery-thumb thumb-2"></a><a class="bootnav__garrery-thumb thumb-3"></a><a class="bootnav__garrery-thumb thumb-4"></a></div>
+        <div class="bootnav__heading">
+          <span class="bootnav__heading-text">Галерея</span>
+        </div>
+        <div class="bootnav__gallery-wrap row">
+          <a class="bootnav__gallery-big col-md-6"></a>
+          <div class="bootnav__gallery-thumbs col-md-6">
+            <a class="bootnav__garrery-thumb thumb-1"></a>
+            <a class="bootnav__garrery-thumb thumb-2"></a>
+            <a class="bootnav__garrery-thumb thumb-3"></a>
+            <a class="bootnav__garrery-thumb thumb-4"></a>
+          </div>
         </div>
       </div>
       <div class="col-sm-12 col-md-1 bootnav__totop totop"><a class="totop__link"><i class="totop__icon fal fa-chevron-up"></i></a></div>
