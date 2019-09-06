@@ -1,0 +1,10 @@
+.breadcrumb {
+  background-color: transparent !important;
+
+  &__link {
+    &:hover {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}

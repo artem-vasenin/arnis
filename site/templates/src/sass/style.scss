@@ -27,6 +27,7 @@
 @import 'molecules/readmore';
 @import 'molecules/logo';
 @import 'molecules/menu';
+@import 'molecules/breadcrumbs';
 
 // 5. Organismus
 @import 'organismus/section-header';
@@ -44,3 +45,5 @@
 @import 'organismus/section-footer';
 
 // 6. Pages
+@import 'pages/basic-page';
+@import 'pages/blog';

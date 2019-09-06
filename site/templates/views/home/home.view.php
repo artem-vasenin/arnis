@@ -70,7 +70,9 @@
 <?php endif; ?>
 <!-- /info red-->
 <!-- video-->
-<?php if ($pages->get(1036)->video_repeater->count) : ?>
+<?php
+  $videoParent = $pages->get(1036);
+  if ($videoParent->children->count && $videoParent->children->first->video_repeater->count) : ?>
 <section class="section-video video text-center">
   <div class="container">
     <div class="row">
@@ -81,20 +83,24 @@
         <div class="video__wrap pb-5">
           <div class="row">
             <?php
-              $counter = 0;
-              foreach ($pages->get(1036)->video_repeater as $key=>$video) :
-                if (!$video->on_off) continue;
-                if ($counter > 2) break;
-                $content = "{link: '$video->video_link', title: '$video->video_title', width: $video->video_width, height: $video->video_height}";
-              ?>
-              <div class="col-sm-6 video__block video__block--1">
-                <a class="video__image video__image--vertical video__image--full" style="background-image: url('http://img.youtube.com/vi/<?=$video->video_link?>/0.jpg')">
-                  <span class="video__description"><?=$video->video_title?></span>
-                  <span class="video__button" @click="ShowVideo(<?=$content?>)"></span>
-                </a>
-              </div>
-            <?php
-              if (!$video->on_off) $counter++;
+              $c = 0;
+              foreach ($videoParent->children as $videoPage) :
+                foreach ($videoPage->video_repeater as $key=>$video) :
+                  if (!$video->on_off) continue;
+                  if ($c > 1) break;
+                  $width = $video->video_width ? $video->video_width : "100%";
+                  $height = $video->video_height ? $video->video_height : "450px";
+                  $content = "{link: '$video->video_link', title: '$video->video_title', width: '$width', height: '$height'}";
+                ?>
+                <div class="col-sm-6 video__block video__block--1">
+                  <a class="video__image video__image--vertical video__image--full" style="background-image: url('http://img.youtube.com/vi/<?=$video->video_link?>/0.jpg')">
+                    <span class="video__description"><?=$video->video_title?></span>
+                    <span class="video__button" @click="ShowVideo(<?=$content?>)"></span>
+                  </a>
+                </div>
+              <?php
+                if ($video->on_off) $c++;
+                endforeach;
               endforeach; ?>
           </div>
         </div>
@@ -185,7 +191,8 @@
         </div>
         <div class="readmore">
           <a href="<?=$pages->get(1041)->url?>" class="readmore__link text-white">Перейти к фотогалерее<span class="readmore__arrow"></span>
-          </a></div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -387,35 +394,4 @@
   </div>
 </div>
 <!-- Central Modal Small -->
-
-<!-- Full Height Modal Right -->
-<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="modalLabel">Меню</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <nav class="mobile-menu">
-          <ul class="nav flex-column mobile-menu__list">
-            <?php foreach($home->pages_field as $link) : ?>
-              <li
-                class="nav-item mobile-menu__item<?=($page->id ===  $link->id) ? ' active' : ''?>"
-              >
-                <a href="<?=$link->url?>" class="nav-link mobile-menu__link text-uppercase">
-                  <span class="mobile-menu__link-text"><?=$link->title?></span>
-                </a>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Full Height Modal Right -->
 <!--/modal-->

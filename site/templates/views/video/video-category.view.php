@@ -20,7 +20,7 @@
       <div class="col-lg-4 pb-3">
         <a class="view overlay zoom" href="<?= $page->image->url ?>" data-size="1920x1080"
            data-lightbox="<?= $page->image->url ?>" title="<?= $item->description ? $item->description : $page->title ?>">
-        <img src="<?=$page->image->size(800, 800)->url?>" alt="<?= $page->title ?>">
+          <img src="<?=$page->image->size(800, 800)->url?>" alt="<?= $page->title ?>">
         </a>
       </div>
       <div class="col-lg-8">
@@ -34,7 +34,7 @@
         <?php if ($page->children()->count) :
           $parent = $page;
           ?>
-          <?php include_once "./../../parts/categories/blog-category.php"; ?>
+          <?php include_once "./../../parts/categories/video-category.php"; ?>
           <?php include_once "./../../parts/components/pagination.php"; ?>
         <?php endif; ?>
 
@@ -48,7 +48,7 @@
               </div>
               <?php foreach ($page->images as $item): ?>
                 <figure class="col-sm-6 col-md-4 col-xl-3">
-                  <a class="view overlay zoom hovered" href="<?= $item->url ?>" data-size="1920x1080"
+                  <a class="view overlay zoom" href="<?= $item->url ?>" data-size="1920x1080"
                      data-lightbox="<?= $item->name ?>" title="<?= $item->description ? $item->description : '' ?>">
                     <img class="img-fluid" src="<?= $item->size(800, 800)->url ?>" alt="gallery">
                     <?php if ($item->description): ?>

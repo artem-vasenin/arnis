@@ -3,10 +3,10 @@
     <div class="row">
         <?php foreach ($parent->children('limit=' . $parent->blog_max) as $item): ?>
           <div class="mx-3 px-3">
-            <div class="row rgba-white-stronger pt-3 mb-5 rounded z-depth-2">
+            <div class="row pt-3 mb-5 z-depth-2 blog__item">
               <?php if ($item->image->url): ?>
                 <div class="col-lg-5 col-xl-4 mb-3">
-                  <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                  <div class="view overlay z-depth-1-half mb-lg-0 mb-4">
                     <img class="img-fluid" alt="Sample image" src="<?= $item->image->size(800, 600)->url ?>">
                     <?php if ($item->body) : ?>
                     <a href="<?= $item->url ?>">
@@ -28,10 +28,10 @@
                   <span class="badge badge-light"><?//= $item->date ?></span>
                 </p>
                 <?php if ($item->body) : ?>
-                <a href="<?= $item->url ?>" class="btn danger-color-dark btn-md" type="button">
-                  Подробнее
-                  <?//<span class="badge badge-danger ml-2">4</span>?>
-                </a>
+                <div class="readmore text-right readmore--dark">
+                  <a href="<?= $item->url ?>" class="readmore__link">Подробнее<span class="readmore__arrow"></span>
+                  </a>
+                </div>
                 <?php endif; ?>
               </div>
             </div>

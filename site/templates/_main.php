@@ -27,6 +27,38 @@
     </main>
     <?php include_once "./parts/footer/footer.part.php"; ?>
   </div>
+
+  <!-- Mobile modal -->
+  <div class="modal fade mobile-menu-modal" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="modalLabel">Меню</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <nav class="mobile-menu">
+            <ul class="nav flex-column mobile-menu__list">
+              <?php foreach($home->pages_field as $link) : ?>
+                <li
+                        class="nav-item mobile-menu__item<?=($page->id ===  $link->id) ? ' active' : ''?>"
+                >
+                  <a href="<?=$link->url?>" class="nav-link mobile-menu__link text-uppercase">
+                    <span class="mobile-menu__link-text"><?=$link->title?></span>
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Mobile modal -->
+
   <script src="<?= $config->urls->js ?>main.js"></script>
 </body>
 </html>

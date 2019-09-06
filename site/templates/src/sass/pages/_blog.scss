@@ -1,0 +1,9 @@
+.page-block {
+  &.text-white {
+    .blog {
+      &__item {
+        background: $color-dark-a7;
+      }
+    }
+  }
+}

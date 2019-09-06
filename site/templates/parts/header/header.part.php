@@ -1,5 +1,5 @@
 <!-- header-->
-<header class="section-header header text-white">
+<header class="section-header header text-white<?=($page->id === 1) ? ' header--home' : ''?>">
   <div class="container">
     <div class="row">
       <?php if ($page->id !== 1) : ?>

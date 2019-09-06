@@ -31,6 +31,18 @@ p {
     padding-bottom: 20px;
 }
 
+.page-block {
+  height: 100%;
+
+  @include susy-breakpoints($lg) {
+    padding-top: 120px;
+  }
+}
+
+.hovered {
+  cursor: pointer;
+}
+
 //developers responsive markers
 .dev {
     position: relative;
