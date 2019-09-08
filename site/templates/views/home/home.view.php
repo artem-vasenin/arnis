@@ -293,6 +293,7 @@
             name="phone"
             autocomplete="off"
             v-model="form.phone"
+            v-mask="'+7 (###) ###-##-##'"
           >
           <textarea
             class="form__textarea-field feedback__textarea-field form-control mb-4"
@@ -380,7 +381,7 @@
           <iframe
             width="100%"
             v-bind:height="video.height"
-            v-bind:src="`https://www.youtube.com/embed/${video.link}`"
+            v-bind:src="`https://www.youtube.com/embed/${video.link}?rel=0`"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen

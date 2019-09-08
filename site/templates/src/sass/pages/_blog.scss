@@ -7,3 +7,19 @@
     }
   }
 }
+
+.blog {
+  &__photo-item {
+    position: relative;
+  }
+
+  &__counter {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+
+  &__item {
+    background: $color-light-a7;
+  }
+}

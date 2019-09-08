@@ -83,7 +83,7 @@
               <iframe
                       width="100%"
                       v-bind:height="video.height"
-                      v-bind:src="`https://www.youtube.com/embed/${video.link}`"
+                      v-bind:src="`https://www.youtube.com/embed/${video.link}?rel=0`"
                       frameborder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                       allowfullscreen

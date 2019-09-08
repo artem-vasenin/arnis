@@ -32,6 +32,8 @@
     }
 
     &:hover {
+      color: $color-red-2;
+
       &::after {
         right: 7px;
         opacity: 0.3;

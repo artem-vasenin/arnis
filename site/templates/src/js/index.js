@@ -9,6 +9,7 @@ import Vue from 'vue/dist/vue';
 import VueTheMask from 'vue-the-mask';
 import 'lightbox2';
 
+const { yandexMap, ymapMarker } = require('vue-yandex-maps');
 Vue.use(VueTheMask);
 
 document.addEventListener( "DOMContentLoaded", () => {
@@ -22,16 +23,24 @@ document.addEventListener( "DOMContentLoaded", () => {
   for(let i = 0; i < wrapper.length; i++) {
     new Dotdotdot( wrapper[i], options );
   }
-  // new Dotdotdot( wrapper, options );
 });
 
 new Vue({
-  // components: { axios },
+  components: { yandexMap, ymapMarker },
   el: '#site',
   data() {
     return {
       showMenuModal: false,
       video: null,
+      map: {
+        mapCenter: window.map_center,
+        mapPoint: window.map_point,
+        mapZoom: window.map_zoom,
+        mapDesc: window.map_desc,
+        mapDrag: window.map_drag ? 'drag' : '',
+        mapScroll: window.map_scroll ? 'scrollZoom' : '',
+        mapIcon: {color: 'red', glyph: 'home'},
+      },
       form: {
         name: '',
         phone: '',
@@ -94,24 +103,18 @@ new Vue({
             this.form.info = 'Сообщение не отправлено...';
             this.form.infoClass = 'text-danger';
             this.ClearFormText(3);
-          })
-          .always(() => {
-            // console.log('allways');
           });
       }
     },
   },
   mounted() {
+
   }
 });
 
 $(function() {
-  $('body').addClass('skobar');
   jarallax(document.querySelectorAll('.jarallax'));
 });
-
-// const someFoo = (varik) => {console.log(varik);}
-// someFoo(Test.data);
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();

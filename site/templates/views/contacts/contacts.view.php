@@ -80,4 +80,27 @@
         <?php endif; ?>
       </div>
     </div>
+<!--map-->
+    <?php if ($page->map_center) : ?>
+      <section class="map">
+        <yandex-map
+                :coords="map.mapCenter"
+                :zoom="map.mapZoom"
+                style="width: 100%; height: 600px;"
+                :cluster-options="{1: {clusterDisableClickZoom: false}}"
+                :behaviors="['ruler', map.mapDrag, map.mapScroll]"
+                :controls="['zoomControl']"
+                map-type="map"
+        >
+          <ymap-marker
+                  marker-id="1",
+                  marker-type="placemark"
+                  :coords="map.mapPoint"
+                  :hint-content="map.mapDesc"
+                  :icon="map.mapIcon"
+          ></ymap-marker>
+        </yandex-map>
+      </section>
+    <?php endif; ?>
+    <!--/map-->
 </section>

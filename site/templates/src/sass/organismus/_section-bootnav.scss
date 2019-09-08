@@ -57,6 +57,12 @@
   // contacts
   &__contacts-address {
     padding: 1px 0;
+
+    .address__link {
+      &:hover {
+        color: $color-red-2;
+      }
+    }
   }
 
   // gallery

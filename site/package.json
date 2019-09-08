@@ -55,6 +55,7 @@
     "jquery": "^3.3.1",
     "lightbox2": "^2.10.0",
     "mdbootstrap": "^4.5.15",
-    "susy": "^3.0.5"
+    "susy": "^3.0.5",
+    "vue-yandex-maps": "^0.8.14"
   }
 }

@@ -15,4 +15,9 @@
   &__info {
     padding-left: 10px;
   }
+  &__link {
+    &:hover {
+      color: $color-red-2;
+    }
+  }
 }

@@ -55,22 +55,28 @@
           <span class="bootnav__heading-text">Галерея</span>
         </div>
         <?php $gallery = $pages->get(1041);
-          if ($gallery->images->count) : ?>
+          if ($gallery->children->count) : ?>
         <div class="bootnav__gallery-wrap row">
           <a
             href="<?=$gallery->url?>"
             class="bootnav__gallery-big col-md-6"
-            style="background-image: url('<?=$gallery->images->first->size(400,400)->url?>');"
+            style="background-image: url('<?=$gallery->children->first->images->first->size(400,400)->url?>');"
           ></a>
           <div class="bootnav__gallery-thumbs col-md-6">
-            <?php foreach ($gallery->images('limit=5') as $img) :
-                if ($img->url === $gallery->images->first->url) continue;
-            ?>
+            <?php
+              $count = 0;
+              foreach ($gallery->children as $cat) :
+              foreach ($cat->images as $img) :
+                if ($gallery->children->first->images->first->url === $img->url) continue;
+                if ($count > 3) break; ?>
               <a
                 href="<?=$gallery->url?>"
                 class="bootnav__garrery-thumb thumb-1"
                 style="background-image: url('<?=$img->size(200,200)->url?>');"
               ></a>
+              <?php
+              $count++;
+              endforeach; ?>
             <?php endforeach; ?>
           </div>
         </div>

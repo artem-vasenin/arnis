@@ -13,7 +13,17 @@
   <script>
     /** user agent */
     var mobiles = <?=$mobiles?>;
+    /** map variables */
+    var map_center = <?= (isset($page->map_center) && $page->map_center !== '') ? $page->map_center : '[]' ?>;
+    var map_point = <?= (isset($page->map_point) && $page->map_point !== '') ? $page->map_point : '[]' ?>;
+    var map_zoom = <?= (isset($page->map_zoom) && $page->map_zoom !== '') ? $page->map_zoom : 16 ?>;
+    var map_scroll = <?= (isset($page->map_scroll) && $page->map_scroll) ? 1 : 0 ?>;
+    var map_drag = <?= (isset($page->map_drag) && $page->map_drag) ? 1 : 0 ?>;
+    var map_desc = "<?= (isset($page->map_desc) && $page->map_desc) ? htmlspecialchars_decode($page->map_desc) : '' ?>";
   </script>
+  <?php if ($page->id === 1047) : ?>
+  <script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+  <?php endif; ?>
   <title><?= $seoTitle; ?></title>
 </head>
 <body class="nojs h-100 body <?= $page->template ?>">
